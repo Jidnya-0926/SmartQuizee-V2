@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,  } from "react";
 
 export default function Settings() {
   // Theme state
@@ -12,7 +12,7 @@ export default function Settings() {
   };
 
   // Admin password state
-  const [adminPassword, setAdminPassword] = useState(
+  const [, setAdminPassword] = useState(
     localStorage.getItem("adminPassword") || "admin123"
   );
   const [newPassword, setNewPassword] = useState("");

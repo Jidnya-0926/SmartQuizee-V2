@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
-  PieChart, Pie, Cell, Legend
-} from "recharts";
+import React, { useState } from "react";
+import { Pie } from "recharts";
 import { useNavigate } from "react-router-dom";
 
 export default function Analytics({ theme = "light" }) {
