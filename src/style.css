@@ -1,0 +1,235 @@
+/* ---------- Root Colors ---------- */
+:root {
+  --bg: #f0f4f8;
+  --card: #ffffff;
+  --text: #1f2937;
+  --accent: #007bff;
+  --accent-hover: #0056b3;
+  --muted: #6b7280;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f1e;
+  --card: #1a1a2e;
+  --text: #e6eef8;
+  --accent: #800080;
+  --accent-hover: #5a005a;
+  --muted: #9aa8bb;
+}
+
+/* ---------- Global Styles ---------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+a { text-decoration: none; color: inherit; }
+h1,h2,h3,h4,h5,h6 { margin: 0 0 10px 0; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.3s, color 0.3s;
+}
+.navbar.light { background: #007bff; color: white; }
+.navbar.dark { background: #4b0082; color: white; }
+
+.navbar .logo { font-size: 1.6rem; font-weight: 700; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-actions .btn-ghost {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.nav-actions .btn-ghost:hover { background: rgba(255,255,255,0.3); }
+
+.nav-actions button.btn-theme,
+.nav-actions button.btn-logout {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transition: 0.2s;
+}
+.nav-actions button.btn-theme:hover,
+.nav-actions button.btn-logout:hover { background: rgba(255,255,255,0.3); }
+
+/* ---------- Footer ---------- */
+/* ---------- Footer ---------- */
+.footer {
+  padding: 16px;
+  text-align: center;
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 -3px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .footer {
+  background: var(--card);
+  color: var(--text);
+}
+
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 960px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+
+/* ---------- Buttons ---------- */
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+button:hover { background: var(--accent-hover); }
+button.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: inherit;
+}
+
+/* ---------- Inputs ---------- */
+input, select, textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  margin-bottom: 12px;
+  background: transparent;
+  color: var(--text);
+  transition: border 0.2s, color 0.3s;
+}
+input:focus, select:focus, textarea:focus {
+  border: 1px solid var(--accent);
+  outline: none;
+}
+
+/* ---------- Layout Utilities ---------- */
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.col { flex: 1; min-width: 200px; }
+.center { text-align: center; }
+
+/* ---------- Tables ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+th { background: var(--accent); color: white; }
+tr:hover { background: rgba(0,0,0,0.05); }
+
+/* ---------- Progress Bar ---------- */
+.progress-bar {
+  height: 12px;
+  background: #e6eef8;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #2f7bd9);
+  transition: width 0.3s ease;
+}
+
+/* ---------- Quiz Options ---------- */
+.options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.options button { text-align: left; }
+
+/* ---------- Profile / Avatar ---------- */
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.avatar-container img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+/* ---------- Quiz Cards Dashboard ---------- */
+.quiz-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.quiz-card {
+  border-radius: 12px;
+  padding: 16px;
+  width: 220px;
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.quiz-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+.quiz-card h4 { margin: 0 0 8px 0; font-size: 1.1rem; }
+.quiz-card p { margin: 4px 0; font-size: 0.9rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 10px; }
+  .card { margin: 10px; padding: 16px; }
+  .row { flex-direction: column; }
+  .quiz-card { width: 45%; }
+}
+@media (max-width:480px) {
+  .quiz-card { width: 100%; }
+}

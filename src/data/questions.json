@@ -1,0 +1,19 @@
+[
+    {
+      "questionText": "What is Java?",
+      "optionA": "Programming Language",
+      "optionB": "Car",
+      "optionC": "Animal",
+      "optionD": "Movie",
+      "correctAnswer": "Programming Language"
+    },
+    {
+      "questionText": "Which company developed React?",
+      "optionA": "Google",
+      "optionB": "Facebook",
+      "optionC": "Microsoft",
+      "optionD": "Apple",
+      "correctAnswer": "Facebook"
+    }
+  ]
+  
