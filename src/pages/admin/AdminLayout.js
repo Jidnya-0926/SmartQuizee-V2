@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { FaUsers, FaBookOpen, FaClipboardList, FaCog, FaChartLine, FaQuestion } from "react-icons/fa";
 
@@ -25,8 +25,6 @@ export default function AdminLayout() {
 
   return (
     <div style={{ display: "flex", minHeight: "90vh", fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", backgroundColor: mainBg }}>
-      
-      {/* Sidebar */}
       <div style={{
         width: "250px",
         height: "550px",
@@ -49,7 +47,6 @@ export default function AdminLayout() {
         <SidebarButton icon={<FaCog />} text="Settings" onClick={() => navigate("/admin/settings")} buttonBg={buttonBg} buttonHover={buttonHover} />
       </div>
 
-      {/* Main Content */}
       <div style={{ flex: 1, marginLeft: "270px", padding: "40px", display: "flex", flexDirection: "column", gap: "30px", color: mainText }}>
         <Outlet />
       </div>
@@ -57,7 +54,6 @@ export default function AdminLayout() {
   );
 }
 
-// Sidebar Button
 const SidebarButton = ({ icon, text, onClick, buttonBg, buttonHover }) => (
   <button
     onClick={onClick}

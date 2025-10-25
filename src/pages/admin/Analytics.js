@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import { Pie } from "recharts";
+import { useEffect, useState } from "react";
+import {
+  BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
+  PieChart, Pie, Cell, Legend
+} from "recharts";
 import { useNavigate } from "react-router-dom";
 
 export default function Analytics({ theme = "light" }) {
@@ -75,7 +78,7 @@ export default function Analytics({ theme = "light" }) {
         <div style={cardStyleTheme}><b>Average Score:</b> {avgScore}</div>
       </div>
 
-      <div style={{ textAlign: "center", marginTop: "25px", minWidth: "200px"}}>
+      <div style={{ textAlign: "center", marginTop: "25px", }}>
         <button
           onClick={() => navigate("/admin/user-analysis")}
           style={buttonStyle}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 /* Components */
@@ -26,7 +26,7 @@ import UserManagement from "./pages/admin/UserManagement";
 import Analytics from "./pages/admin/Analytics";
 import UserAnalysis from "./pages/admin/UserAnalysis";
 import Settings from "./pages/admin/Settings";
-import AdminLayout from "./pages/admin/AdminLayout"; // <-- Added
+import AdminLayout from "./pages/admin/AdminLayout";
 
 /* Helpers */
 import { getStoredTheme } from "./utils/helpers";

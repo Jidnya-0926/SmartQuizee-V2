@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 export default function ManageQuestions() {
   const [questions, setQuestions] = useState([]);

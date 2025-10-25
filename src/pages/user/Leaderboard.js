@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Leaderboard() {
   const [users, setUsers] = useState([]);
@@ -7,16 +7,13 @@ export default function Leaderboard() {
     const allUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const allAttempts = JSON.parse(localStorage.getItem("attempts") || "[]");
 
-    // Calculate total score for each user based on all attempts
     const usersWithTotal = allUsers.map(user => {
       const userAttempts = allAttempts.filter(a => a.userEmail === user.email);
       const totalScore = userAttempts.reduce((sum, attempt) => sum + (attempt.score || 0), 0);
       return { ...user, totalScore };
     });
 
-    // Sort in descending order of totalScore (high → low)
     usersWithTotal.sort((a, b) => b.totalScore - a.totalScore);
-
     setUsers(usersWithTotal);
   }, []);
 

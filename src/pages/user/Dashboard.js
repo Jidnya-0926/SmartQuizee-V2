@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
-  const [quizzes, setQuizzes] = useState(JSON.parse(localStorage.getItem("quizzes") || "[]"));
+  const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const [quizzes] = useState(JSON.parse(localStorage.getItem("quizzes") || "[]"));
   const [searchText, setSearchText] = useState("");
   const [filteredQuizzes, setFilteredQuizzes] = useState([]);
 
   useEffect(() => {
-    // Map quizzes to include categoryName
     const categories = JSON.parse(localStorage.getItem("categories") || "[]");
     const mappedQuizzes = quizzes.map(q => {
       const category = categories.find(c => c.id === q.categoryId);
       return { ...q, categoryName: category ? category.name : "—" };
     });
 
-    // Filter quizzes based on search text
     const filtered = mappedQuizzes.filter(q =>
       q.title.toLowerCase().includes(searchText.toLowerCase())
     );

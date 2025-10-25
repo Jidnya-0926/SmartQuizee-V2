@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 export default function ManageCategories() {
   const [categories, setCategories] = useState([]);

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
+
 import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
-  PieChart, Pie, Cell, Legend
+  BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer
 } from "recharts";
 
 export default function UserAnalysis() {
   const [users, setUsers] = useState([]);
-  const [attempts, setAttempts] = useState([]);
+  const [setAttempts] = useState([]);
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
@@ -28,7 +28,7 @@ export default function UserAnalysis() {
 
   // Top 5 performers for chart
   const top5 = users.slice(0, 5);
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8854d0"];
+//   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8854d0"];
 
   return (
     <div className="card" style={{ padding: "1.5rem" }}>

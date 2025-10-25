@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { defaultCategories } from "../../utils/data";
 
 export default function ManageQuizzes() {
