@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function Analytics({ theme = "light" }) {
   const [users, setUsers] = useState([]);
   const [quizzes, setQuizzes] = useState([]);
-  const [attempts, setAttempts] = useState([]);
+  const [attempts, setLocalAttempts] = useState([]); // setter नाव बदललं
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Analytics({ theme = "light" }) {
 
     setUsers(storedUsers);
     setQuizzes(storedQuizzes);
-    setAttempts(storedAttempts);
+    setLocalAttempts(storedAttempts); // updated setter
   }, []);
 
   const totalAttempts = attempts.length;
@@ -78,7 +78,7 @@ export default function Analytics({ theme = "light" }) {
         <div style={cardStyleTheme}><b>Average Score:</b> {avgScore}</div>
       </div>
 
-      <div style={{ textAlign: "center", marginTop: "25px", }}>
+      <div style={{ textAlign: "center", marginTop: "25px" }}>
         <button
           onClick={() => navigate("/admin/user-analysis")}
           style={buttonStyle}
@@ -99,7 +99,6 @@ export default function Analytics({ theme = "light" }) {
       </ResponsiveContainer>
 
       <h3 style={{ marginTop: "20px" }}>🎯 Average Score per Quiz</h3>
-      {/* Wrap in scrollable container for wider chart */}
       <div style={{ width: "100%", overflowX: "auto" }}>
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>

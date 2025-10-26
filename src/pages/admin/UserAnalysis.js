@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect } from "react"; // nes
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer
 } from "recharts";
 
 export default function UserAnalysis() {
-  const [users, setUsers, setAttempts] = useState([]);
-//   const [attempts, setAttempts] = useState([]); // fixed: added attempts state
+  const [users, setUsers] = useState([]);
+  const [attempts, setAttempts] = useState([]); // fixed
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
@@ -24,7 +23,7 @@ export default function UserAnalysis() {
 
     setUsers(usersWithScores);
     setAttempts(storedAttempts);
-  }, [setAttempts]); // fixed: added setAttempts as dependency
+  }, []);
 
   // Top 5 performers for chart
   const top5 = users.slice(0, 5);

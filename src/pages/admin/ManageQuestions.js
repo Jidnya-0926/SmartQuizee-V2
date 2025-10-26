@@ -47,7 +47,7 @@ export default function ManageQuestions() {
       <h2>Manage Questions</h2>
       <div className="row">
         <select onChange={e => setSelectedQuiz(quizzes.find(q => q.id===parseInt(e.target.value)))} value={selectedQuiz?.id || ""}>
-          <option value="">Select Quiz</option>
+          <option value="">Select Quize</option>
           {quizzes.map(q => <option key={q.id} value={q.id}>{q.title}</option>)}
         </select>
         <input placeholder="Search..." value={search} onChange={e=>setSearch(e.target.value)}/>
