@@ -5,8 +5,8 @@ import {
 } from "recharts";
 
 export default function UserAnalysis() {
-  const [users, setUsers] = useState([]);
-  const [attempts, setAttempts] = useState([]); // fixed: added attempts state
+  const [users, setUsers, setAttempts] = useState([]);
+//   const [attempts, setAttempts] = useState([]); // fixed: added attempts state
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
